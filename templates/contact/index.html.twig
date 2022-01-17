@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ controller_name }} {% endblock %}
+
+{% block body %}
+<h1>Contactez-nous</h1>
+<p>Vous pouvez nous contacter en nous communiquant votre adresse e-mail, l'objet de votre message et votre demande.</p>
+{{ form_start(formulaireAfficher) }}
+    {{ form_row(formulaireAfficher.mail, {'attr' : {'placeholder' : 'Entrez votre adresse mail...'}}) }}
+    {{ form_row(formulaireAfficher.objet, {'attr' : {'placeholder' : 'Entrez l\'objet de votre message...'}}) }}
+    {{ form_row(formulaireAfficher.message, {'attr' : {'placeholder' : 'Entrez votre message...'}}) }}
+    {{ form_row(formulaireAfficher.envoyer) }}
+{{ form_end(formulaireAfficher, {render_rest : false}) }}
+{% endblock %}

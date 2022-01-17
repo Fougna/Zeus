@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ controller_name }} {% endblock %}
+
+{% block body %}
+<h1>Message envoyé !</h1>
+<p>Nous vous recontacterons dès que possible à l'adresse suivante : {{ mail }} </p><br>
+<p>Récapitulatif de votre message</p>
+<p>Objet : {{ objet }}</p>
+<p>Message : {{ message }}</p>
+{% endblock %}
