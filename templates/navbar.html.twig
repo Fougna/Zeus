@@ -23,13 +23,19 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Administration
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_article_index')}}">Article</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_auteur_index')}}">Auteur</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_categoriearticle_index')}}">Catégorie d'article</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_categoriepersonnage_index')}}">Catégorie de personnage</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_legende_index')}}">Légende</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_order_index')}}">Ordre</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_page_index')}}">Page</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_personnage_index')}}">Personnage</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{{path('admin_user_index')}}">Utilisateur</a></li>
           </ul>
         </li>
         <li class="nav-item">
