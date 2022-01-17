@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnage index{% endblock %}
+
+{% block body %}
+    <h1>Personnage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Presentation</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnage in personnages %}
+            <tr>
+                <td>{{ personnage.id }}</td>
+                <td>{{ personnage.nom }}</td>
+                <td>{{ personnage.presentation }}</td>
+                <td>{{ personnage.image }}</td>
+                <td>
+                    <a href="{{ path('admin_personnage_show', {'id': personnage.id}) }}">show</a>
+                    <a href="{{ path('admin_personnage_edit', {'id': personnage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_personnage_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategoriePersonnage index{% endblock %}
+
+{% block body %}
+    <h1>CategoriePersonnage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Presentation</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie_personnage in categorie_personnages %}
+            <tr>
+                <td>{{ categorie_personnage.id }}</td>
+                <td>{{ categorie_personnage.nom }}</td>
+                <td>{{ categorie_personnage.presentation }}</td>
+                <td>{{ categorie_personnage.image }}</td>
+                <td>
+                    <a href="{{ path('admin_categoriepersonnage_show', {'id': categorie_personnage.id}) }}">show</a>
+                    <a href="{{ path('admin_categoriepersonnage_edit', {'id': categorie_personnage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_categoriepersonnage_new') }}">Create new</a>
+{% endblock %}
