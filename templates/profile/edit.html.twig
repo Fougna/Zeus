@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}ZEUS EX MACHINA : Modification du compte utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+    <h1>Modification du compte utilisateur</h1>
 
-    {{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('profile/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('profile_show') }}">Retour au profil</a>
 {% endblock %}

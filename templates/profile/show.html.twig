@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}ZEUS EX MACHINA : Compte utilisateur{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>Utilisateur</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Numéro d'identifiant</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>Adresse mail</th>
                 <td>{{ user.email }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('profile_edit') }}">edit</a>
+    <a href="{{ path('profile_edit') }}">Modifier</a>
 {% endblock %}
