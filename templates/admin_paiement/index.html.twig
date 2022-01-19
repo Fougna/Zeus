@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des paiements{% endblock %}
+
+{% block body %}
+    <h1>Liste des paiements</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N° Identifiant</th>
+                <th>Création</th>
+                <th>StripeSessionId</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paiement in paiements %}
+            <tr>
+                <td>{{ paiement.id }}</td>
+                <td>{{ paiement.creation ? paiement.creation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ paiement.stripeSessionId }}</td>
+                <td>
+                    <a href="{{ path('admin_paiement_show', {'id': paiement.id}) }}">Afficher</a>
+                    <a href="{{ path('admin_paiement_edit', {'id': paiement.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_paiement_new') }}">Créer nouveau</a>
+{% endblock %}

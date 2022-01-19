@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des commandes{% endblock %}
+
+{% block body %}
+    <h1>Index des commandes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N° de commande</th>
+                <th>Création</th>
+                <th>Référence</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.creation ? commande.creation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.reference }}</td>
+                <td>
+                    <a href="{{ path('admin_commande_show', {'id': commande.id}) }}">Afficher</a>
+                    <a href="{{ path('admin_commande_edit', {'id': commande.id}) }}">Mofifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_commande_new') }}">Créer nouveau</a>
+{% endblock %}

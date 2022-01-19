@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\OrderRepository;
+use App\Repository\CommandeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=OrderRepository::class)
- * @ORM\Table(name="`order`")
+ * @ORM\Entity(repositoryClass=CommandeRepository::class)
  */
-class Order
+class Commande
 {
     /**
      * @ORM\Id
@@ -23,7 +22,18 @@ class Order
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $creation;
+
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    private $reference;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $client;
 
     /**
      * @ORM\ManyToMany(targetEntity=Article::class)
@@ -40,14 +50,38 @@ class Order
         return $this->id;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreation(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->creation;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreation(\DateTimeInterface $creation): self
     {
-        $this->createdAt = $createdAt;
+        $this->creation = $creation;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getClient(): ?User
+    {
+        return $this->client;
+    }
+
+    public function setClient(?User $client): self
+    {
+        $this->client = $client;
 
         return $this;
     }
