@@ -6,7 +6,15 @@
     <h1>Enregistrement utilisateur</h1>
     <p>Créez un compte pour profiter pleinement de notre site !</p>
     {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.nom) }}
+        {{ form_row(registrationForm.pseudo) }}
         {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.telephone) }}
+        {{ form_row(registrationForm.adresse) }}
+        {{ form_row(registrationForm.code_postal) }}
+        {{ form_row(registrationForm.ville) }}
+        {{ form_row(registrationForm.pays) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe'
         }) }}
