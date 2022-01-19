@@ -6,6 +6,7 @@ use App\Entity\Auteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AuteurType extends AbstractType
 {
@@ -14,7 +15,10 @@ class AuteurType extends AbstractType
         $builder
             ->add('nom')
             ->add('presentation')
-            ->add('image')
+            ->add('image', FileType::class,
+            [
+                'mapped' => false
+            ])
         ;
     }
 

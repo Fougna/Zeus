@@ -6,6 +6,7 @@ use App\Entity\Page;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class PageType extends AbstractType
 {
@@ -13,7 +14,10 @@ class PageType extends AbstractType
     {
         $builder
             ->add('numero')
-            ->add('image')
+            ->add('image', FileType::class,
+            [
+                'mapped' => false
+            ])
             ->add('pageArticle')
         ;
     }

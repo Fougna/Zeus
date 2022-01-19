@@ -1,39 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnage index{% endblock %}
+{% block title %}ADMINISTRATION : Liste des personnages{% endblock %}
 
 {% block body %}
-    <h1>Personnage index</h1>
+    <h1>Liste des personnages</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Presentation</th>
+                 <th>N° Identifiant</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Présentation</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for personnage in personnages %}
             <tr>
                 <td>{{ personnage.id }}</td>
+                <td><img class="w100" src="{{ asset('uploads/' ~ personnage.image) }}" alt=""></td>
                 <td>{{ personnage.nom }}</td>
                 <td>{{ personnage.presentation }}</td>
-                <td>{{ personnage.image }}</td>
                 <td>
-                    <a href="{{ path('admin_personnage_show', {'id': personnage.id}) }}">show</a>
-                    <a href="{{ path('admin_personnage_edit', {'id': personnage.id}) }}">edit</a>
+                    <a href="{{ path('admin_personnage_show', {'id': personnage.id}) }}">Afficher</a>
+                    <a href="{{ path('admin_personnage_edit', {'id': personnage.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune entrée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_personnage_new') }}">Create new</a>
+    <a href="{{ path('admin_personnage_new') }}">Créer nouveau personnage</a>
 {% endblock %}

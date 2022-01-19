@@ -6,6 +6,7 @@ use App\Entity\Legende;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class LegendeType extends AbstractType
 {
@@ -14,7 +15,10 @@ class LegendeType extends AbstractType
         $builder
             ->add('titre')
             ->add('resume')
-            ->add('image')
+            ->add('image', FileType::class,
+            [
+                'mapped' => false
+            ])
         ;
     }
 

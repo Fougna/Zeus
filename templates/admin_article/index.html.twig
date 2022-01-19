@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>N° Identifiant</th>
+                <th>Image</th>
                 <th>Titre</th>
                 <th>Prix</th>
                 <th>Résumé</th>
@@ -19,6 +20,7 @@
         {% for article in articles %}
             <tr>
                 <td>{{ article.id }}</td>
+                <td><img class="w100" src="{{ asset('uploads/' ~ article.image) }}" alt=""></td>
                 <td>{{ article.titre }}</td>
                 <td>{{ article.prix }}</td>
                 <td>{{ article.resume }}</td>
@@ -35,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_article_new') }}">Nouvel article</a>
+    <a href="{{ path('admin_article_new') }}">Créer nouvel article</a>
 {% endblock %}

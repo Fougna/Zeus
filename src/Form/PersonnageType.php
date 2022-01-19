@@ -6,6 +6,7 @@ use App\Entity\Personnage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class PersonnageType extends AbstractType
 {
@@ -14,7 +15,10 @@ class PersonnageType extends AbstractType
         $builder
             ->add('nom')
             ->add('presentation')
-            ->add('image')
+            ->add('image', FileType::class,
+            [
+                'mapped' => false
+            ])
             ->add('categorie')
         ;
     }

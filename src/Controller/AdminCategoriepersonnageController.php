@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use App\Service\FileUploader;
 use App\Entity\CategoriePersonnage;
 use App\Form\CategoriePersonnageType;
-use App\Repository\CategoriePersonnageRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\CategoriePersonnageRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/admin/categoriepersonnage")
@@ -29,13 +30,20 @@ class AdminCategoriepersonnageController extends AbstractController
     /**
      * @Route("/new", name="admin_categoriepersonnage_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, FileUploader $fileUploader, EntityManagerInterface $entityManager): Response
     {
         $categoriePersonnage = new CategoriePersonnage();
         $form = $this->createForm(CategoriePersonnageType::class, $categoriePersonnage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile)
+            {
+                $imageFileName = $fileUploader->upload($imageFile);
+                $categoriePersonnage->setImage($imageFileName);
+            }
+
             $entityManager->persist($categoriePersonnage);
             $entityManager->flush();
 
@@ -61,12 +69,19 @@ class AdminCategoriepersonnageController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_categoriepersonnage_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, CategoriePersonnage $categoriePersonnage, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, FileUploader $fileUploader, CategoriePersonnage $categoriePersonnage, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CategoriePersonnageType::class, $categoriePersonnage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile)
+            {
+                $imageFileName = $fileUploader->upload($imageFile);
+                $categoriePersonnage->setImage($imageFileName);
+            }
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_categoriepersonnage_index', [], Response::HTTP_SEE_OTHER);

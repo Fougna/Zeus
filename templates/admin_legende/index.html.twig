@@ -1,39 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Legende index{% endblock %}
+{% block title %}ADMINISTRATION : Liste des Légendes{% endblock %}
 
 {% block body %}
-    <h1>Legende index</h1>
+    <h1>Liste des Légendes</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Resume</th>
+                <th>N° Identifiant</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for legende in legendes %}
             <tr>
                 <td>{{ legende.id }}</td>
+                <td><img class="w100" src="{{ asset('uploads/' ~ legende.image) }}" alt=""></td>
                 <td>{{ legende.titre }}</td>
                 <td>{{ legende.resume }}</td>
-                <td>{{ legende.image }}</td>
                 <td>
-                    <a href="{{ path('admin_legende_show', {'id': legende.id}) }}">show</a>
-                    <a href="{{ path('admin_legende_edit', {'id': legende.id}) }}">edit</a>
+                    <a href="{{ path('admin_legende_show', {'id': legende.id}) }}">Afficher</a>
+                    <a href="{{ path('admin_legende_edit', {'id': legende.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune entrée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_legende_new') }}">Create new</a>
+    <a href="{{ path('admin_legende_new') }}">Créer nouvelle légende</a>
 {% endblock %}

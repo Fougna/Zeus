@@ -2,3 +2,10 @@ h1
 {
     color: crimson;
 }
+
+img
+{
+    height: 100%;
+padding: 5px;
+border-radius: 10px;
+}

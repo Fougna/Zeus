@@ -4,12 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Auteur;
 use App\Form\AuteurType;
+use App\Service\FileUploader;
 use App\Repository\AuteurRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/admin/auteur")
@@ -29,13 +30,20 @@ class AdminAuteurController extends AbstractController
     /**
      * @Route("/new", name="admin_auteur_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, FileUploader $fileUploader, EntityManagerInterface $entityManager): Response
     {
         $auteur = new Auteur();
         $form = $this->createForm(AuteurType::class, $auteur);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile)
+            {
+                $imageFileName = $fileUploader->upload($imageFile);
+                $auteur->setImage($imageFileName);
+            }
+            
             $entityManager->persist($auteur);
             $entityManager->flush();
 
@@ -61,12 +69,19 @@ class AdminAuteurController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_auteur_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Auteur $auteur, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, FileUploader $fileUploader, Auteur $auteur, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(AuteurType::class, $auteur);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile)
+            {
+                $imageFileName = $fileUploader->upload($imageFile);
+                $auteur->setImage($imageFileName);
+            }
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_auteur_index', [], Response::HTTP_SEE_OTHER);

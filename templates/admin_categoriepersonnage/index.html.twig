@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CategoriePersonnage index{% endblock %}
+{% block title %}ADMINISTRATION : Liste des catégories de personnage{% endblock %}
 
 {% block body %}
-    <h1>CategoriePersonnage index</h1>
+    <h1>Liste des catégories de personnage</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Presentation</th>
+                <th>N° Identifiant</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Présentation</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for categorie_personnage in categorie_personnages %}
             <tr>
                 <td>{{ categorie_personnage.id }}</td>
+                <td><img class="w100" src="{{ asset('uploads/' ~ categorie_personnage.image) }}" alt=""></td>
                 <td>{{ categorie_personnage.nom }}</td>
                 <td>{{ categorie_personnage.presentation }}</td>
-                <td>{{ categorie_personnage.image }}</td>
                 <td>
                     <a href="{{ path('admin_categoriepersonnage_show', {'id': categorie_personnage.id}) }}">show</a>
                     <a href="{{ path('admin_categoriepersonnage_edit', {'id': categorie_personnage.id}) }}">edit</a>
@@ -29,11 +29,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune entrée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_categoriepersonnage_new') }}">Create new</a>
+    <a href="{{ path('admin_categoriepersonnage_new') }}">Créer nouvelle catégorie</a>
 {% endblock %}
