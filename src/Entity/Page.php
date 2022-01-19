@@ -33,6 +33,12 @@ class Page
      */
     private $pageArticle;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="pages")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $article;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +76,18 @@ class Page
     public function setPageArticle(?Article $pageArticle): self
     {
         $this->pageArticle = $pageArticle;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }

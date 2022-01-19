@@ -20,7 +20,7 @@ class Article
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(type="string", length=255)
      */
     private $titre;
 
@@ -31,12 +31,12 @@ class Article
     private $categorie;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @ORM\Column(type="float")
      */
     private $prix;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="UserArticles")
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $admin;
@@ -57,7 +57,7 @@ class Article
     private $resume;
 
     /**
-     * @ORM\OneToMany(targetEntity=Page::class, mappedBy="pageArticle")
+     * @ORM\OneToMany(targetEntity=Page::class, mappedBy="article")
      */
     private $pages;
 
@@ -97,12 +97,12 @@ class Article
         return $this;
     }
 
-    public function getPrix(): ?string
+    public function getPrix(): ?float
     {
         return $this->prix;
     }
 
-    public function setPrix(string $prix): self
+    public function setPrix(float $prix): self
     {
         $this->prix = $prix;
 
@@ -193,7 +193,7 @@ class Article
     {
         if (!$this->pages->contains($page)) {
             $this->pages[] = $page;
-            $page->setPageArticle($this);
+            $page->setArticle($this);
         }
 
         return $this;
@@ -203,8 +203,8 @@ class Article
     {
         if ($this->pages->removeElement($page)) {
             // set the owning side to null (unless already changed)
-            if ($page->getPageArticle() === $this) {
-                $page->setPageArticle(null);
+            if ($page->getArticle() === $this) {
+                $page->setArticle(null);
             }
         }
 
