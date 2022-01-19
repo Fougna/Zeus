@@ -13,12 +13,14 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre')
+            ->add('image')
             ->add('prix')
             ->add('resume')
+            ->add('pages')
             ->add('categorie')
-            ->add('admin')
             ->add('auteurs')
             ->add('personnages')
+            ->add('admin')
         ;
     }
 
