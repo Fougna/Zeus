@@ -27,11 +27,6 @@ class Page
      */
     private $image;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="pages")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $pageArticle;
 
     /**
      * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="pages")
@@ -68,18 +63,6 @@ class Page
         return $this;
     }
 
-    public function getPageArticle(): ?Article
-    {
-        return $this->pageArticle;
-    }
-
-    public function setPageArticle(?Article $pageArticle): self
-    {
-        $this->pageArticle = $pageArticle;
-
-        return $this;
-    }
-
     public function getArticle(): ?Article
     {
         return $this->article;
@@ -90,5 +73,10 @@ class Page
         $this->article = $article;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->image;
     }
 }

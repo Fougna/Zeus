@@ -18,7 +18,7 @@ class PageType extends AbstractType
             [
                 'mapped' => false
             ])
-            ->add('pageArticle')
+            ->add('article')
         ;
     }
 
