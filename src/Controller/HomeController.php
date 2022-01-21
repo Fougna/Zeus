@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'Page d\'accueil',
+            'controller_name' => 'ZEUS EX MACHINA : La Mythologie Grecque à portée de clic !',
         ]);
     }
 }

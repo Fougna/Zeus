@@ -7,50 +7,68 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{path ('home')}}">Page d'accueil</a>
+          <a class="nav-link active" aria-current="page" href="{{ path('home')}}">Page d'accueil</a>
+        </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Articles
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ path('article_catalog_index') }}">Albums</a></li>
+          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path ('contact')}}">Contact</a>
+          <a class="nav-link" href="{{ path('cart_index') }}">Panier</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path ('newsletter')}}">Newsletter</a>
+          <a class="nav-link" href="{{ path('contact') }}">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path ('app_register')}}">Inscription</a>
+          <a class="nav-link" href="{{ path('newsletter') }}">Newsletter</a>
+        </li>
+        {% if is_granted('ROLE_USER') == false %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path ('app_login')}}">Connexion</a>
+          <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+        </li>
+        {% endif %}
+        {% if is_granted('ROLE_USER') %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('profile_show') }}">Profil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path ('profile_show')}}">Profil</a>
+          <a class="nav-link" href="{{path('app_logout') }}">Déconnexion</a>
         </li>
+        {% endif %}
         {% if is_granted('ROLE_ADMIN') %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Administration
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{path('admin_article_index')}}">Article</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_auteur_index')}}">Auteur</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_categoriearticle_index')}}">Catégorie d'article</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_categoriepersonnage_index')}}">Catégorie de personnage</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_legende_index')}}">Légende</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_commande_index')}}">Commande</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_paiement_index')}}">Paiement</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_page_index')}}">Page</a></li>
-            <li><a class="dropdown-item" href="{{path('admin_personnage_index')}}">Personnage</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_article_index') }}">Article</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_auteur_index') }}">Auteur</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_categoriearticle_index') }}">Catégorie d'article</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_categoriepersonnage_index') }}">Catégorie de personnage</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_legende_index') }}">Légende</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_commande_index') }}">Commande</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_paiement_index') }}">Paiement</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_page_index') }}">Page</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_personnage_index') }}">Personnage</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{path('admin_user_index')}}">Utilisateur</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_user_index') }}">Utilisateur</a></li>
           </ul>
         </li>
         {% endif %}
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled">Désactivé</a>
         </li>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success" type="submit">Recherche</button>
       </form>
     </div>
   </div>

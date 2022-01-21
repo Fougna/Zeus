@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ZEUS EX MACHINA : Liste des albums{% endblock %}
+
+{% block body %}
+    <h1>Liste des albums</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Image</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.titre }}</td>
+                <td>
+                    <img class="w-25" src="{{ asset('uploads/' ~ article.image) }}" alt="">
+                </td>
+                <td>{{ article.prix }}</td>
+                <td>
+                    <a href="{{ path('article_catalog_show', {'id': article.id}) }}">Détails</a>
+                    <a href="{{ path('cart_add', {'id': article.id}) }}">Ajouter</a>
+                    <a href="{{ path('cart_remove', {'id': article.id}) }}">Retirer</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
