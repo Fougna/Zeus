@@ -24,9 +24,7 @@
                 <td>{{ article.prix }}</td>
                 <td>
                     <a href="{{ path('article_catalog_show', {'id': article.id}) }}">Détails</a>
-                    <a href="{{ path('cart_add', {'id': article.id}) }}">Ajouter</a>
-                    <a href="{{ path('cart_remove', {'id': article.id}) }}">Retirer</a>
-                    
+                    <a href="{{ path('cart_add', {'id': article.id}) }}">Ajouter au panier</a>
                 </td>
             </tr>
         {% else %}
