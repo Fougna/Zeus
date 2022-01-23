@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnage index{% endblock %}
+
+{% block body %}
+    <h1>Personnage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Presentation</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnage in personnages %}
+            <tr>
+                <td>{{ personnage.nom }}</td>
+                <td>{{ personnage.presentation }}</td>
+                <td><img class="w-25" src= "{{ asset('uploads/' ~ personnage.image) }}" ></td>
+                <td>
+                    <a href="{{ path('personnage_catalog_show', {'id': personnage.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

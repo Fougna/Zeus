@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>N° Identifiant</th>
                 <th>Image</th>
                 <th>Nom</th>
                 <th>Présentation</th>
@@ -18,8 +17,7 @@
         <tbody>
         {% for categorie_personnage in categorie_personnages %}
             <tr>
-                <td>{{ categorie_personnage.id }}</td>
-                <td><img class="w100" src="{{ asset('uploads/' ~ categorie_personnage.image) }}" alt=""></td>
+                <td><img class="w-25" src="{{ asset('uploads/' ~ categorie_personnage.image) }}" alt=""></td>
                 <td>{{ categorie_personnage.nom }}</td>
                 <td>{{ categorie_personnage.presentation }}</td>
                 <td>

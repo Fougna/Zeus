@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnage{% endblock %}
+
+{% block body %}
+    <h1>{{ personnage.nom }}</h1>
+
+    <table class="table">
+        <thead>
+            <img class="w-50" src= "{{ asset('uploads/' ~ personnage.image) }}" ><br>
+            <br>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ personnage.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Présentation</th>
+                <td>{{ personnage.presentation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personnage_catalog_index') }}">back to list</a>
+{% endblock %}
