@@ -39,6 +39,7 @@ class CategorieArticle
         return $this;
     }
 
+    // Méthode magique convertissant un tableau en chaîne de caractères à partir d'une colonne contenant une valeur en 'string'.
     public function __toString()
     {
         return $this->nom;

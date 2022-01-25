@@ -75,8 +75,10 @@ class Page
         return $this;
     }
 
+    // Méthode magique convertissant un tableau en chaîne de caractères à partir d'une colonne contenant une valeur en 'string'.
+    // À l'intérieur de la fonction,  on convertit la valeur numérique de la colonne 'annee' en 'string' grâce à la méthode 'strval()'.
     public function __toString()
     {
-        return $this->image;
+        return strval($this->numero);
     }
 }
