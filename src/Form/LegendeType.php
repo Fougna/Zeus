@@ -15,8 +15,7 @@ class LegendeType extends AbstractType
         $builder
             ->add('titre')
             ->add('resume')
-            ->add('image', FileType::class,
-            [
+            ->add('image', FileType::class, [
                 'mapped' => false
             ])
         ;

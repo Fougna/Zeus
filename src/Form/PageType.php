@@ -14,8 +14,7 @@ class PageType extends AbstractType
     {
         $builder
             ->add('numero')
-            ->add('image', FileType::class,
-            [
+            ->add('image', FileType::class, [
                 'mapped' => false
             ])
             ->add('article')

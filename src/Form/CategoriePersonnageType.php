@@ -15,8 +15,7 @@ class CategoriePersonnageType extends AbstractType
         $builder
             ->add('nom')
             ->add('presentation')
-            ->add('image', FileType::class,
-            [
+            ->add('image', FileType::class, [
                 'mapped' => false
             ])
         ;
