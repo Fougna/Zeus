@@ -14,7 +14,7 @@ class CguController extends AbstractController
     public function index(): Response
     {
         return $this->render('cgu/index.html.twig', [
-            'controller_name' => 'CguController',
+            'controller_name' => 'ZEUS EX MACHINA : Conditions générales d\'utilisation',
         ]);
     }
 }
