@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Titre</th>
-                <th>Image</th>
+                <th>Couverture</th>
                 <th>Prix</th>
                 <th>Actions</th>
             </tr>
@@ -19,11 +19,11 @@
             <tr>
                 <td>{{ article.titre }}</td>
                 <td>
-                    <img src="{{ asset('uploads/' ~ article.image) }}" alt="">
+                    <img class="w-25" src="{{ asset('uploads/' ~ article.image) }}" alt="">
                 </td>
                 <td>{{ article.prix }}</td>
                 <td>
-                    <a href="{{ path('article_catalog_show', {'id': article.id}) }}">Détails</a>
+                    <a href="{{ path('article_catalog_show', {'id': article.id}) }}">Détails</a><br>
                     <a href="{{ path('cart_add', {'id': article.id}) }}">Ajouter au panier</a>
                 </td>
             </tr>

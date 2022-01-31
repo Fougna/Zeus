@@ -13,6 +13,7 @@ class CartController extends AbstractController
     /**
      * @Route("/panier", name="cart_index")
      */
+    // Fonction d'affichage de la liste des articles dans le panier
     public function index(CartService $cartService): Response
     {
         $cart = $cartService->getCart();
@@ -25,6 +26,8 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/ajout/{id}", name="cart_add")
      */
+    // Fonction d'ajout d'articles dans le panier.
+    // Ici, on utilise le param converter de Symfony pour convertir l'id de l'article en article.
     public function add(CartService $cartService, Article $article): Response
     {
         $cartService->addArticle($article);
@@ -34,6 +37,7 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/retrait/{id}", name="cart_remove")
      */
+    // Fonction de suppression d'articles du panier.
     public function remove(CartService $cartService, Article $article): Response
     {
         $cartService->removeArticle($article);
@@ -43,6 +47,7 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/vide", name="cart_clear")
      */
+    // Fonction de vidage du panier.
     public function clear(CartService $cartService): Response
     {
         $cartService->clearCart();

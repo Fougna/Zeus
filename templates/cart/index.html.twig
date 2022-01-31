@@ -3,6 +3,7 @@
 {% block title %}{{ controller_name }}{% endblock %}
 
 {% block body %}
+{# Condition qui vérifie que si des articles sont présents dans le panier, le panier est affiché. #}
 {% if cart.elements %}
 <table>
 <tr>
@@ -10,16 +11,23 @@
     <th>Quantité</th>
     <th>Prix</th>
 </tr>
+{# Boucle 'for' qui va afficher chacun des articles ajoutés dans le panier à la suite. #}
 {% for element in cart.elements %}
 <tr>
     <td>{{ element.article.titre }}</td>
     <td>{{ element.quantity }}</td>
     <td>{{ element.article.prix }}</td>
+    <td><a href="{{ path('cart_remove', {'id': element.article.id}) }}">Supprimer l'article</a></td>
 </tr>
 {% endfor %}
 <tr>
     <th>Total du panier :  {{ cart.total }}</th>
 </tr>
 </table>
+<a href="{{ path('cart_clear') }}">Vider le panier</a>
+{% endif %}
+{# Condition qui vérifie que si le panier est vide, alors le message ci-dessous est affiché. #}
+{% if cart.elements == false %}
+<h1>Votre panier est désespérement vide...</h1>
 {% endif %}
 {% endblock %}

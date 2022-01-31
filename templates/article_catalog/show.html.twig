@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article{% endblock %}
+{% block title %}ZEUS EX MACHINA : {{ article.id }}{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
+    <h1>{{ article.titre }}</h1>
 
     <table class="table">
         <tbody>
@@ -25,10 +25,10 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td><img src= «{{ asset('uploads/' ~ article.image) }}» ></td>
+                <td><img class="w-50" src= "{{ asset('uploads/' ~ article.image) }}" ></td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('article_catalog_index') }}">back to list</a>
+    <a href="{{ path('article_catalog_index') }}">Retour à la liste</a>
 {% endblock %}
