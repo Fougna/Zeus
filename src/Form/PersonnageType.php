@@ -16,7 +16,8 @@ class PersonnageType extends AbstractType
             ->add('nom')
             ->add('presentation')
             ->add('image', FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ])
             ->add('categorie')
         ;

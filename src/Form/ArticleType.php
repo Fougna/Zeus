@@ -15,7 +15,8 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre')
             ->add('image', FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ])
             ->add('prix')
             ->add('resume')

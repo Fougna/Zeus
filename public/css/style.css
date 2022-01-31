@@ -1,4 +1,20 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
 h1
 {
     color: crimson;
+}
+
+.top
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+
 }
