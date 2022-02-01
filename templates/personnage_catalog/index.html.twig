@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnage index{% endblock %}
+{% block title %}ZEUS EX MACHINA : Personnages{% endblock %}
 
 {% block body %}
-    <h1>Personnage index</h1>
+    <h1>Personnages</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Presentation</th>
+                <th>Présentation</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,12 +21,12 @@
                 <td>{{ personnage.presentation }}</td>
                 <td><img class="w-25" src= "{{ asset('uploads/' ~ personnage.image) }}" ></td>
                 <td>
-                    <a href="{{ path('personnage_catalog_show', {'id': personnage.id}) }}">show</a>
+                    <a href="{{ path('personnage_catalog_show', {'id': personnage.id}) }}">Détails</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune entrée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>

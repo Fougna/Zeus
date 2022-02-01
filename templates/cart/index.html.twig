@@ -25,6 +25,7 @@
 </tr>
 </table>
 <a href="{{ path('cart_clear') }}">Vider le panier</a>
+<a href="{{ path('payment_redirect') }}">Valider le panier</a>
 {% endif %}
 {# Condition qui vérifie que si le panier est vide, alors le message ci-dessous est affiché. #}
 {% if cart.elements == false %}

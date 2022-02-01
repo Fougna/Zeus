@@ -8,7 +8,7 @@
     <script>
     // Fonction automatique (IFFE) qui nettoie la session en cours.
         (function(){
-            const stripe = Stripe('sk_test_51KKOuKJlloKEXjEO0vyV76PRB7AxukO8tsvQPkXxs2oKWkEJ9SZ0vFIfd6Zb10VDZDRJ9dSsMtCpnolzZe9wbdfx00msXnvNvm');
+            const stripe = Stripe('pk_test_51KKOuKJlloKEXjEOiNGDPstZBDUIsjR7v1WiuZGKZOuY0DBGb0TpHodfKfsnUFTOHAhui9rrvfb1ZW6oHuQmVklO00HzINbYC2');
             stripe.redirectToCheckout({
                 sessionId : '{{ paymentSessionId }}'
             });
@@ -17,6 +17,6 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ controller_name }}</h1>
-    <p>Vous allez être redirigé vers la session de paiement n°{{ paymentSessionId }}</p>
+    <h1>Transaction en cours...</h1>
+    <p>Redirection vers la session de paiement n°{{ paymentSessionId }}</p>
 {% endblock %}

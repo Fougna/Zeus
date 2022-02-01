@@ -19,7 +19,7 @@ class PersonnageCatalogController extends AbstractController
     public function index(PersonnageRepository $personnageRepository): Response
     {
         return $this->render('personnage_catalog/index.html.twig', [
-            'personnages' => $personnageRepository->findAll(),
+            'personnages' => $personnageRepository->findAll()
         ]);
     }
 

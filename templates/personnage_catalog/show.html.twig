@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnage{% endblock %}
+{% block title %}ZEUS EX MACHINA : {{ personnage.nom }}{% endblock %}
 
 {% block body %}
     <h1>{{ personnage.nom }}</h1>
@@ -22,5 +22,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('personnage_catalog_index') }}">back to list</a>
+    <a href="{{ path('personnage_catalog_index') }}">Retour vers la liste</a>
 {% endblock %}
