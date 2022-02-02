@@ -32,7 +32,7 @@ class AdminCommandeController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $commande = new Commande();
-        $form = $this->createForm(CommandeType::class, $commande);
+        $form = $this->createForm(Commande1Type::class, $commande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class AdminCommandeController extends AbstractController
      */
     public function edit(Request $request, Commande $commande, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(CommandeType::class, $commande);
+        $form = $this->createForm(Commande1Type::class, $commande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

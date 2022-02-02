@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CommandeType extends AbstractType
+class Commande1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -16,6 +16,7 @@ class CommandeType extends AbstractType
             ->add('reference')
             ->add('client')
             ->add('articles')
+            ->add('paiement')
         ;
     }
 

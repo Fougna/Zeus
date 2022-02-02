@@ -13,7 +13,7 @@ class PaymentService
     public function __construct(CartService $cartService)
     {
         $this->cartService = $cartService;
-        $this->order = new StripeClient('pk_test_51KKOuKJlloKEXjEOiNGDPstZBDUIsjR7v1WiuZGKZOuY0DBGb0TpHodfKfsnUFTOHAhui9rrvfb1ZW6oHuQmVklO00HzINbYC2');
+        $this->order = new StripeClient('sk_test_51KKOuKJlloKEXjEO0vyV76PRB7AxukO8tsvQPkXxs2oKWkEJ9SZ0vFIfd6Zb10VDZDRJ9dSsMtCpnolzZe9wbdfx00msXnvNvm');
     }
 
     // Création d'un ordre de paiement utilisant une session Stripe
@@ -54,6 +54,7 @@ class PaymentService
             'line_items' => $articles
         ]);
 
+        // Récupération de l'id de la session Stripe en mémoire.
         return $session->id;
     }
 }

@@ -40,6 +40,12 @@ class Commande
      */
     private $articles;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Paiement::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $paiement;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -106,6 +112,18 @@ class Commande
     public function removeArticle(Article $article): self
     {
         $this->articles->removeElement($article);
+
+        return $this;
+    }
+
+    public function getPaiement(): ?Paiement
+    {
+        return $this->paiement;
+    }
+
+    public function setPaiement(Paiement $paiement): self
+    {
+        $this->paiement = $paiement;
 
         return $this;
     }

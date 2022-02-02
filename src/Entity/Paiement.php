@@ -28,8 +28,8 @@ class Paiement
     private $stripeSessionId;
 
     /**
-     * @ORM\OneToOne(targetEntity=Commande::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity=Commande::class, inversedBy="paiement", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $commande;
 
