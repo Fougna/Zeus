@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Legende{% endblock %}
+{% block title %}ADMINISTRATION : Création d'une nouvelle Légende{% endblock %}
 
 {% block body %}
-    <h1>Create new Legende</h1>
+    <h1>Création d'une nouvelle Légende</h1>
 
     {{ include('admin_legende/_form.html.twig') }}
 
-    <a href="{{ path('admin_legende_index') }}">back to list</a>
+    <a href="{{ path('admin_legende_index') }}">Retour à la liste</a>
 {% endblock %}

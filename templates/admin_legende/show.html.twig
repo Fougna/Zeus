@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Legende{% endblock %}
+{% block title %}ADMINISTRATION : Liste des Légendes{% endblock %}
 
 {% block body %}
-    <h1>Legende</h1>
+    <h1>Liste des Légendes</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Fiche n°</th>
                 <td>{{ legende.id }}</td>
             </tr>
             <tr>
@@ -16,7 +16,7 @@
                 <td>{{ legende.titre }}</td>
             </tr>
             <tr>
-                <th>Resume</th>
+                <th>Résumé</th>
                 <td>{{ legende.resume }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_legende_index') }}">back to list</a>
+    <a href="{{ path('admin_legende_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('admin_legende_edit', {'id': legende.id}) }}">edit</a>
+    <a href="{{ path('admin_legende_edit', {'id': legende.id}) }}">Modifier</a>
 
     {{ include('admin_legende/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Legende{% endblock %}
+{% block title %}ADMINISTRATION : Modification de la Légende{% endblock %}
 
 {% block body %}
-    <h1>Edit Legende</h1>
+    <h1>Modification de la Légende</h1>
 
-    {{ include('admin_legende/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_legende/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('admin_legende_index') }}">back to list</a>
+    <a href="{{ path('admin_legende_index') }}">Retour vers la liste</a>
 
     {{ include('admin_legende/_delete_form.html.twig') }}
 {% endblock %}

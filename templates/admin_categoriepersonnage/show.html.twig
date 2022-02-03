@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CategoriePersonnage{% endblock %}
+{% block title %}ADMINISTRATION : Catégorie de Personnage{% endblock %}
 
 {% block body %}
-    <h1>CategoriePersonnage</h1>
+    <h1>{{ categorie_personnage.nom }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>N°</th>
                 <td>{{ categorie_personnage.id }}</td>
             </tr>
             <tr>
@@ -16,7 +16,7 @@
                 <td>{{ categorie_personnage.nom }}</td>
             </tr>
             <tr>
-                <th>Presentation</th>
+                <th>Présentation</th>
                 <td>{{ categorie_personnage.presentation }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_categoriepersonnage_index') }}">back to list</a>
+    <a href="{{ path('admin_categoriepersonnage_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('admin_categoriepersonnage_edit', {'id': categorie_personnage.id}) }}">edit</a>
+    <a href="{{ path('admin_categoriepersonnage_edit', {'id': categorie_personnage.id}) }}">Modifier</a>
 
     {{ include('admin_categoriepersonnage/_delete_form.html.twig') }}
 {% endblock %}

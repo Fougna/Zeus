@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Paiement{% endblock %}
+{% block title %}ADMINISTRATION : Paiement{% endblock %}
 
 {% block body %}
     <h1>Paiement</h1>
@@ -16,7 +16,7 @@
                 <td>{{ paiement.creation ? paiement.creation|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>StripeSessionId</th>
+                <th>Session Stripe n°</th>
                 <td>{{ paiement.stripeSessionId }}</td>
             </tr>
         </tbody>

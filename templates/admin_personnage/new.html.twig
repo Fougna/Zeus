@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Personnage{% endblock %}
+{% block title %}ADMINISTRATION : Création d'un nouveau Personnage{% endblock %}
 
 {% block body %}
-    <h1>Create new Personnage</h1>
+    <h1>Création d'un nouveau Personnage</h1>
 
     {{ include('admin_personnage/_form.html.twig') }}
 
-    <a href="{{ path('admin_personnage_index') }}">back to list</a>
+    <a href="{{ path('admin_personnage_index') }}">Retour à la liste</a>
 {% endblock %}

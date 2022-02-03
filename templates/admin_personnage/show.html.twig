@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnage{% endblock %}
+{% block title %}ADMINISTRATION : Personnage{% endblock %}
 
 {% block body %}
-    <h1>Personnage</h1>
+    <h1>{{ personnage.nom }}</h1>
 
     <table class="table">
         <tbody>
@@ -16,7 +16,7 @@
                 <td>{{ personnage.nom }}</td>
             </tr>
             <tr>
-                <th>Presentation</th>
+                <th>Présentation</th>
                 <td>{{ personnage.presentation }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_personnage_index') }}">back to list</a>
+    <a href="{{ path('admin_personnage_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('admin_personnage_edit', {'id': personnage.id}) }}">edit</a>
+    <a href="{{ path('admin_personnage_edit', {'id': personnage.id}) }}">Modifier</a>
 
     {{ include('admin_personnage/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CategorieArticle index{% endblock %}
+{% block title %}ADMINISTRATION : Liste des Catégories d'Article{% endblock %}
 
 {% block body %}
-    <h1>CategorieArticle index</h1>
+    <h1>Liste des Catégories d'Article</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Fiche n°d</th>
                 <th>Nom</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,17 @@
                 <td>{{ categorie_article.id }}</td>
                 <td>{{ categorie_article.nom }}</td>
                 <td>
-                    <a href="{{ path('admin_categoriearticle_show', {'id': categorie_article.id}) }}">show</a>
-                    <a href="{{ path('admin_categoriearticle_edit', {'id': categorie_article.id}) }}">edit</a>
+                    <a href="{{ path('admin_categoriearticle_show', {'id': categorie_article.id}) }}">Afficher</a>
+                    <a href="{{ path('admin_categoriearticle_edit', {'id': categorie_article.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucune entrée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_categoriearticle_new') }}">Create new</a>
+    <a href="{{ path('admin_categoriearticle_new') }}">Nouvelle Catégorie</a>
 {% endblock %}
