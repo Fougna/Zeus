@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ADMINISTRATION : Auteur{% endblock %}
+{% block title %}ZEUS EX MACHINA : {{ auteur.nom }}{% endblock %}
 
 {% block body %}
     <h1>{{ auteur.nom }}</h1>
@@ -26,9 +26,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_auteur_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('admin_auteur_edit', {'id': auteur.id}) }}">Modifier</a>
-
-    {{ include('admin_auteur/_delete_form.html.twig') }}
+    <a href="{{ path('auteur_catalog_index') }}">Retour à la liste</a>
 {% endblock %}

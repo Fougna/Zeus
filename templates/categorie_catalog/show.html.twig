@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ADMINISTRATION : Catégorie de Personnage{% endblock %}
+{% block title %}ZEUS EX MACHINA : {{ categorie_personnage.nom }}{% endblock %}
 
 {% block body %}
     <h1>{{ categorie_personnage.nom }}</h1>
@@ -8,7 +8,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>N°</th>
+                <th>Fiche n°</th>
                 <td>{{ categorie_personnage.id }}</td>
             </tr>
             <tr>
@@ -26,9 +26,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_categoriepersonnage_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('admin_categoriepersonnage_edit', {'id': categorie_personnage.id}) }}">Modifier</a>
-
-    {{ include('admin_categoriepersonnage/_delete_form.html.twig') }}
+    <a href="{{ path('categorie_catalog_index') }}">Retour à la liste</a>
 {% endblock %}

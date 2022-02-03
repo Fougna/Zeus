@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ADMINISTRATION : Liste des Catégories de Personnage{% endblock %}
+{% block title %}ZEUS EX MACHINA : Liste des Catégories de Personnage{% endblock %}
 
 {% block body %}
     <h1>Liste des Catégories de Personnage</h1>
@@ -8,21 +8,22 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Image</th>
+                <th>Fiche n°</th>
                 <th>Nom</th>
                 <th>Présentation</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for categorie_personnage in categorie_personnages %}
             <tr>
-                <td><img class="w-25" src="{{ asset('uploads/' ~ categorie_personnage.image) }}" alt=""></td>
+                <td>{{ categorie_personnage.id }}</td>
                 <td>{{ categorie_personnage.nom }}</td>
                 <td>{{ categorie_personnage.presentation }}</td>
+                <td><img src="{{ asset('uploads/' ~ categorie_personnage.image) }}" alt=""></td>
                 <td>
-                    <a href="{{ path('admin_categoriepersonnage_show', {'id': categorie_personnage.id}) }}">Afficher</a>
-                    <a href="{{ path('admin_categoriepersonnage_edit', {'id': categorie_personnage.id}) }}">Modifier</a>
+                    <a href="{{ path('categorie_catalog_show', {'id': categorie_personnage.id}) }}">show</a>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +33,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('admin_categoriepersonnage_new') }}">Nouvelle Catégorie</a>
 {% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ZEUS EX MACHINA : Liste des Légendes{% endblock %}
+
+{% block body %}
+    <h1>Liste des Légendes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fiche n°</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for legende in legendes %}
+            <tr>
+                <td>{{ legende.id }}</td>
+                <td>{{ legende.titre }}</td>
+                <td>{{ legende.resume }}</td>
+                <td><img src="{{ asset('uploads/' ~ legende.image) }}" alt=""></td>
+                <td>
+                    <a href="{{ path('legend_catalog_show', {'id': legende.id}) }}">Détails</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur index{% endblock %}
+
+{% block body %}
+    <h1>Auteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fiche n°</th>
+                <th>Nom</th>
+                <th>Présentation</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteurs %}
+            <tr>
+                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.nom }}</td>
+                <td>{{ auteur.presentation }}</td>
+                <td><img src="{{ asset('uploads/' ~ auteur.image) }}" alt=""></td>
+                <td>
+                    <a href="{{ path('auteur_catalog_show', {'id': auteur.id}) }}">Détails</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

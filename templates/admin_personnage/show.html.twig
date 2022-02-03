@@ -8,7 +8,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Fiche n°</th>
                 <td>{{ personnage.id }}</td>
             </tr>
             <tr>
@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ personnage.image }}</td>
+                <td><img class="w-50" src= "{{ asset('uploads/' ~ personnage.image) }}" ></td>
             </tr>
         </tbody>
     </table>

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ZEUS EX MACHINA : {{ legende.titre }}{% endblock %}
+
+{% block body %}
+    <h1>{{ legende.titre }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Fiche n°</th>
+                <td>{{ legende.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ legende.titre }}</td>
+            </tr>
+            <tr>
+                <th>Résumé</th>
+                <td>{{ legende.resume }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img class="w-50" src= "{{ asset('uploads/' ~ legende.image) }}" ></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('legend_catalog_index') }}">Retour à la liste</a>
+{% endblock %}
