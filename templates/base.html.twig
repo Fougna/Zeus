@@ -28,6 +28,8 @@
         <main class="container">
             {% block body %}{% endblock %}
         </main>
+        {# Inclusion du lien vers la Navbar du bas #}
+        {{ include ('navbottom.html.twig') }}
 
         {% block javascripts %}
             {# Intégration fichier JavaScript #}
