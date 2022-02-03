@@ -14,7 +14,7 @@ class MentionslegalesController extends AbstractController
     public function index(): Response
     {
         return $this->render('mentionslegales/index.html.twig', [
-            'controller_name' => 'MentionslegalesController',
+            'controller_name' => 'ZEUS EX MACHINA : Mentions légales',
         ]);
     }
 }
