@@ -4,13 +4,13 @@
 
 {% block body %}
     <h1>Liste des pages</h1>
-
+    <a href="{{ path('admin_page_new') }}">Ajouter une nouvelle page</a>
     <table class="table">
         <thead>
             <tr>
                 <th>N° Identifiant</th>
+                <th>N° de page</th>
                 <th>Image</th>
-                <th>Numéro de page</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,8 +18,8 @@
         {% for page in pages %}
             <tr>
                 <td>{{ page.id }}</td>
-                <td><img class="w100" src="{{ asset('uploads/' ~ page.image) }}" alt=""></td>
                 <td>{{ page.numero }}</td>
+                <td><img class="w-25" src="{{ asset('uploads/' ~ page.image) }}" alt=""></td>
                 <td>
                     <a href="{{ path('admin_page_show', {'id': page.id}) }}">Afficher</a>
                     <a href="{{ path('admin_page_edit', {'id': page.id}) }}">Modifier</a>
@@ -32,6 +32,10 @@
         {% endfor %}
         </tbody>
     </table>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <a href="{{ path('admin_page_new') }}">Nouvelle Page</a>
 {% endblock %}

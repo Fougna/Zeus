@@ -47,4 +47,17 @@ class LegendeRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // Fonction qui prend n'importe quelle valeur sous forme de 'string'
+    public function findBySearch(string $value): array
+    {
+        // On utilise la valeur retournée pour créer une requête SQL grâce à la méthode 'createQueryBuilder' de l'ORM Doctrine.
+        return $this->createQueryBuilder('l')
+            // On va d'abord chercher dans la table 'p', dans la colonne 'nom' la valeur enregistrée)
+            ->andWhere("l.titre LIKE :val")
+            // On définit comme paramètres que la valeur 'val' présente en BDD doit correspondre à la valeur recherchée par la méthode 'Search'.
+            ->setParameter('val', "%$value%")
+            ->getQuery()
+            ->getResult();
+    }
 }
