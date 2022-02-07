@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ controller_name }} {% endblock %}
+{% block title %}{{ controller_name }}{% endblock %}
 
 {% block body %}
 <h1>Inscription réussie !</h1>
-<p>Félicitations, {{ prenom }} {{ nom }} !<br>
-Vous êtes bien inscrit(e) à notre Newsletter avec l'adresse mail suivante : {{ mail }} </p>
+<p>Félicitations, {{ newsletter.prenom }} {{ newsletter.nom }} !<br>
+Vous êtes bien inscrit(e) à notre Newsletter avec l'adresse mail suivante : {{ newsletter.mail }} </p>
 {% endblock %}

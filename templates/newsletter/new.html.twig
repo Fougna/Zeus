@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ controller_name }}{% endblock %}
+
+{% block body %}
+    <h1>Inscription à la Newsletter</h1>
+    <p>Restez en contact avec les dernières nouvelles du site en vous inscrivant à notre Newsletter !</p>
+    {{ include('newsletter/_form.html.twig') }}
+{% endblock %}
