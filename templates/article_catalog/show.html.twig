@@ -25,10 +25,21 @@
             </tr>
             <tr>
                 <th>Couverture</th>
-                <td><img class="w-50" src= "{{ asset('uploads/' ~ article.image) }}" ></td>
+                <td><img class="w-50" src= "{{ asset('uploads/' ~ article.image) }}"></td>
             </tr>
+            {% for pages in article %}
+            <tr>
+                <td>
+                    <img class="w-25" src="{{ asset('uploads/' ~ page.image) }}" alt="">
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">Aucune entrée trouvée</td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
-
+    <br>
     <a href="{{ path('article_catalog_index') }}">Retour à la liste</a>
 {% endblock %}
