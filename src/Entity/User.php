@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Il existe déjà un compte lié à cet e-mail.")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -83,6 +83,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $code_postal;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    // On définit par défaut la valeur de la vérification de l'e-mail sur "false"
+    private $isVerified = false;
 
 
     public function __construct()
@@ -170,6 +176,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return null;
     }
 
+    // Méthode supprimant des données utilisateur.
     /**
      * @see UserInterface
      */
@@ -305,7 +312,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
     // Méthode magique convertissant un tableau en chaîne de caractères à partir d'une colonne contenant une valeur en 'string'.
     public function __toString()
     {

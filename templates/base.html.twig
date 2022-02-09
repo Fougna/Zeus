@@ -23,6 +23,12 @@
         {% endblock %}
     </head>
     <body>
+        {% for flash in app.flashes('success') %}
+            <div class="alert alert-success">{{ flash }}</div>
+        {% endfor %}
+        {% for flash in app.flashes('error') %}
+            <div class="alert alert-danger">{{ flash }}</div>
+        {% endfor %}
         {# Inclusion du lien vers le Header #}
         {{ include ('header.html.twig') }}
         {# Inclusion du lien vers la Navbar #}
