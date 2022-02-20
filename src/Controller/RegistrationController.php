@@ -93,7 +93,7 @@ class RegistrationController extends AbstractController
         }
 
         // Affichage d'un message 'flash' temporaire de succès de la validation.
-        $this->addFlash('success', 'Votre adresse e-mail a bien été vérifiéé !');
+        $this->addFlash('success', 'Votre adresse e-mail a bien été vérifiée !');
 
         // Redirection vers la page d'accueil.
         return $this->redirectToRoute('home');
