@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Mohave', sans-serif !important;
     margin: 0px;
     padding: 0px;
 }
@@ -18,10 +17,6 @@
 
 h1 {
     color: crimson;
-}
-
-.custom-logo:hover {
-    text-shadow: solid black 2px 2px 2px;
 }
 
 .footer {

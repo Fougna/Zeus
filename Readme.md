@@ -16,10 +16,6 @@ Une prévisualisation gratuite de 5 à 10 pages est prévue pour les bandes dess
 
 - Le site se veut visuellement attractif pour un public jeune, et également sobre pour ne pas
 rebuter un visitorat plus âgé.
-- Un **système de badge** lié à un compte client augmente de niveau à chaque action de
-l'utilisateur sur le site: il gagne des points en consultant les **fiches**, davantage en répondant
-aux **quiz** et beaucoup plus en achetant des **ebooks**.
-Cette interactivité permet de créer une fidélisation et réduire le taux de rebond.
 - L'idée est de raconter toutes les légendes grecques en une grande saga cohérente,
 façon série à suivre, afin d'inciter à l'achat d'ebooks à venir.
 - Le coût de fabrication des ebooks bien moindre par rapport à une parution papier,
