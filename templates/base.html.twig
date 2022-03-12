@@ -39,9 +39,9 @@
         {% for flash in app.flashes('error') %}
             <div class="alert alert-danger">{{ flash }}</div>
         {% endfor %}
-
-        {# Inclusion du lien vers le Header #}
-        {{ include ('header.html.twig') }}
+        
+        {# Inclusion du lien vers le Header
+        {{ include ('header.html.twig') }} #}
 
         {# Inclusion du lien vers la Navbar #}
         {{ include ('sidebar.html.twig') }}
