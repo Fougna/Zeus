@@ -1,7 +1,10 @@
+{# Inclusion du template de base pour la mise en forme du site. #}
 {% extends 'base.html.twig' %}
 
+{# Bloc title affichant le titre en haut du navigateur HTML, combinant du texte et un lien vers le titre l'entité article. #}
 {% block title %}ZEUS EX MACHINA : {{ article.titre }}{% endblock %}
 
+{# Bloc body affichant le contenu de la page web sous forme de tableau, combinant du texte et des liens vers les colonnes de l'entité article. #}
 {% block body %}
     <h1>{{ article.titre }}</h1>
 
@@ -27,18 +30,18 @@
                 <th>Couverture</th>
                 <td><img class="w-50" src= "{{ asset('uploads/' ~ article.image) }}"></td>
             </tr>
-            {% for pages in article %}
             <tr>
                 <th>Pages</th>
+                {% for pages in article %}
                 <td>
                     <img class="w-25" src="{{ asset('uploads/' ~ page.image) }}" alt="">
                 </td>
+                {% else %}
+                <td>
+                    <td colspan="6">Aucune entrée trouvée</td>
+                </td>
+                {% endfor %}
             </tr>
-            {% else %}
-            <tr>
-                <td colspan="6">Aucune entrée trouvée</td>
-            </tr>
-            {% endfor %}
         </tbody>
     </table>
     <br>
