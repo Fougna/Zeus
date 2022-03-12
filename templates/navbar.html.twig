@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-marble">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{path ('home')}}">Index</a>
+    <a class="navbar-brand custom-logo" href="{{path ('home')}}"><img src="{{ asset('images/Logo.png') }}" alt="" style="height: 70px;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,9 +14,9 @@
             Encyclopédie
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
+            {# <li>
               <a class="dropdown-item" href="{{ path('legend_catalog_index') }}">Légendes</a>
-            </li>
+            </li> #}
             <li>
               <a class="dropdown-item" href="{{ path('personnage_catalog_index') }}">Personnages</a>
             </li>
@@ -37,8 +37,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ path('newsletter_new') }}">Newsletter</a>
         </li>
-        {# Si un utilisateur (USER) n'est pas connecté, alors les liens compris
-         dans la condition ci-dessous apparaissent. #}
+        {# Si un utilisateur (USER) n'est pas connecté, alors les liens compris dans la condition ci-dessous apparaissent. #}
         {% if is_granted('ROLE_USER') == false %}
         <li class="nav-item">
           <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
@@ -47,8 +46,7 @@
           <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
         </li>
         {% endif %}
-        {# Si un utilisateur (USER) est connecté, alors les liens compris
-         dans la condition ci-dessous apparaissent. #}
+        {# Si un utilisateur (USER) est connecté, alors les liens compris dans la condition ci-dessous apparaissent. #}
         {% if is_granted('ROLE_USER') %}
         <li class="nav-item">
           <a class="nav-link" href="{{path('profile_show') }}">Profil</a>
@@ -57,8 +55,7 @@
           <a class="nav-link" href="{{path('app_logout') }}">Déconnexion</a>
         </li>
         {% endif %}
-        {# Si un administrateur (ADMIN) est connecté, alors les liens compris
-         dans la condition ci-dessous apparaissent. #}
+        {# Si un administrateur (ADMIN) est connecté, alors les liens compris dans la condition ci-dessous apparaissent. #}
         {% if is_granted('ROLE_ADMIN') %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,7 +66,7 @@
             <li><a class="dropdown-item" href="{{ path('admin_auteur_index') }}">Auteur</a></li>
             <li><a class="dropdown-item" href="{{ path('admin_categoriearticle_index') }}">Catégorie d'article</a></li>
             <li><a class="dropdown-item" href="{{ path('admin_categoriepersonnage_index') }}">Catégorie de personnage</a></li>
-            <li><a class="dropdown-item" href="{{ path('admin_legende_index') }}">Légende</a></li>
+            {# <li><a class="dropdown-item" href="{{ path('admin_legende_index') }}">Légende</a></li> #}
             <li><a class="dropdown-item" href="{{ path('admin_commande_index') }}">Commande</a></li>
             <li><a class="dropdown-item" href="{{ path('admin_newsletter_index') }}">Newsletter</a></li>
             <li><a class="dropdown-item" href="{{ path('admin_paiement_index') }}">Paiement</a></li>
